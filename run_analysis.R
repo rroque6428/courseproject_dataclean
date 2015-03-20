@@ -19,7 +19,7 @@ sTestDataPath  <- paste(sDsetPath, "test/X_test.txt", sep="/")
 sTestActDataPath <- paste(sDsetPath, "test/y_test.txt", sep="/")
 sTestSubjectIDPath <- paste(sDsetPath, "test/subject_test.txt", sep="/")
 
-# - - -
+# - - - Read the needed datasets to create the tidy dataset
 
 # Read Activity Labels
 act_labels <- read.table(sActLabelsPath, sep = " ", header= FALSE)
@@ -27,7 +27,7 @@ act_labels <- read.table(sActLabelsPath, sep = " ", header= FALSE)
 features <- read.table(sFeaturesPath, sep = " ", header= FALSE)
 
 # - - - Read datasets
-nrows = 500 # included for debug purposes. Change to -1 to get all rows.
+nrows = -1 # included for debug purposes. Change to -1 to get all rows.
 
 x_train <- read.table(sTrainDataPath, nrows=nrows)
 x_train_activity <- read.table(sTrainActDataPath, nrows=nrows)

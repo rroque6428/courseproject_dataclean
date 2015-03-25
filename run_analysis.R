@@ -72,7 +72,14 @@ joined_dset <- joined_dset %>%
 
 # Create a new dataset with the average of 'var' grouped by 'activity',
 # 'volunteer_id' and 'var'
-group01 <- group_by(joined_dset, activity, volunteer_id, var)
+
+# !! Attention !! 
+# This line was altered *after* the submission period, because I made a mistake.
+# I forgot to include 'domain', 'signal' and 'axis' in the group.
+# I dont expect to get my score altered, but only to show that was a small error.
+# group01 <- group_by(joined_dset, activity, volunteer_id, var) # WRONG
+group01 <- group_by(joined_dset, activity, volunteer_id, domain, signal, var, axis)
+
 dset_avg <- summarise(group01, var_avg = mean(measurement))
 # ... and save to disk
 write.table(dset_avg, file="dset_avg.txt", row.name = FALSE, quote= FALSE)
